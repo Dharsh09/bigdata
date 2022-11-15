@@ -1,0 +1,23 @@
+HIVE COMMANDS
+hive
+create table train(no int,arrived int,departed int,place String); insert into train values(10,6,5,madurai);
+insert into train values(45,8,6,theni);
+insert into train values(45,6,8,sathur);
+insert into train values(51,5,9,sivakashi);
+insert into train values(60,4,6,chennai);
+select * from train;
+select no,place from train; select count(*) from train;
+select sum(arrived) from train; select floor(departed) from train; select sqrt(place) from train; select max(no) from train;
+PIG COMMANDS
+train = LOAD '/home/hadoop/train.txt' USING PigStorage(',') as (no:int,arrived:int,departed:int,place:chararray);
+dump train;
+group_data = GROUP train by arrived;
+dump group_data;
+order_by_data = ORDER train BY no DESC; dump order_by_data;
+train2 = JOIN train BY arrived, train1 BY arrived; dump train2;
+limit_data = LIMIT train 2; dump limit_data;
+
+  
+ 
+
+  
